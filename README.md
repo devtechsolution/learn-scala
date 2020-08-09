@@ -3,7 +3,7 @@
 *   In addition, we can also use if and else clause as an expression where you get back the result of your condition or logical step.
 
 ```scala
-package org.as.devtechsolution.yu.ch07
+package org.as.devtechsolution.yu.ch07;
 
 object If_Else_Expression_Tutorial extends App {
   println("Step 1: Using if clause as a statement")
@@ -190,21 +190,25 @@ Sweetening ingredients = List(sugar, syrup)
 ##### Using for comprehension to loop through 2-Dimensional array
 * **Creation**
     *  We will use **Scala Array class** and call the **ofDim()** function, pass in the type of String in square brackets **[String]** and then specify our **2 by 2 array** in the function parameter.
+* **Iteration of 2-D Array**
+     * To iterate through your 2-Dimensional array, you can use the for comprehension and first declare an x variable to loop from 0 until 2, followed by a second iteration again from 0 until 2 which you will store in variable y.
+     * After the closing } of our for loop, you can call println() to print each element of our 2-Dimensional array.
+
 ```scala
 val twoDimensionalArray = Array.ofDim[String](2,2)
 twoDimensionalArray(0)(0) = "flour"
 twoDimensionalArray(0)(1) = "sugar"
 twoDimensionalArray(1)(0) = "egg"
 twoDimensionalArray(1)(1) = "syrup"
-```
-* **Iteration of 2-D Array**
-* To iterate through your 2-Dimensional array, you can use the for comprehension and first declare an x variable to loop from 0 until 2, followed by a second iteration again from 0 until 2 which you will store in variable y.
-* After the closing } of our for loop, you can call println() to print each element of our 2-Dimensional array.
-```scala
+// Iteration of 2-D Array
 for { x <- 0 until 2
        y <- 0 until 2
 } println(s"Donut ingredient at index ${(x,y)} = ${twoDimensionalArray(x)(y)}")
+
 ```
+
+
+
 
 
 
