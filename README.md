@@ -1,4 +1,4 @@
-###If Else Statement And Expression
+### If Else Statement And Expression
 *   In Scala, we can use the if and else clause as a statement to test for some condition or logical step
 *   In addition, we can also use if and else clause as an expression where you get back the result of your condition or logical step.
 
@@ -65,9 +65,9 @@ object If_Else_Expression_Tutorial extends App {
 }
 
 ```
-###While loop  and do-while loop
+### While loop  and do-while loop
 
-####while loop
+#### while loop
 
 *  From a pure functional perspective the use of loop such as the while loop is generally less favoured.
 *  Instead, fold and recursive operations are preferred.
@@ -79,7 +79,7 @@ while (numberOfDonutsToBake > 0) {
   numberOfDonutsToBake -= 1
 }
 ```
-######Output
+###### Output
 ```text
 Remaining donuts to be baked = 10
 Remaining donuts to be baked = 9
@@ -92,12 +92,12 @@ Remaining donuts to be baked = 3
 Remaining donuts to be baked = 2
 Remaining donuts to be baked = 1
 ```
-#####Note:
+##### Note:
 * The while loop will stop when the condition numberOfDonutsToBake > 0 becomes false.
 * Yes - we've used a mutable variable! And we know that mutation is a bad thing in functional programming!
 * Once again, there are better functional ways of achieving the same looping semantics using fold or recursive techniques.
 
-####do-while loop
+#### do-while loop
 * The difference between a while construct versus a do while is that any expressions within the do {} will be ran at least once regardless of the condition within the while() clause.
 
 ```scala
@@ -108,7 +108,7 @@ do {
   println(s"Number of donuts baked = $numberOfDonutsBaked")
 } while (numberOfDonutsBaked < 5)
 ```
-#####Output:
+##### Output:
 ```text
 Step 2: How to use do while loop in Scala
 Number of donuts baked = 1
@@ -117,7 +117,7 @@ Number of donuts baked = 3
 Number of donuts baked = 4
 Number of donuts baked = 5
 ```
-###for loop (For Comprehension)
+### for loop (For Comprehension)
 * Basic Syntax of for-loop as statement is:
  ```text
 for(var a<- Range){
@@ -187,7 +187,7 @@ Sweetening ingredients = List(sugar, syrup)
 * Instead of using the (), we are using the {} in our for comprehension to make our expressions more explicit.
 * To **return the result** of the for comprehension and store it in the sweeteningIngredients variable, we will make use of the **yield** keyword.
 
-#####Using for comprehension to loop through 2-Dimensional array
+##### Using for comprehension to loop through 2-Dimensional array
 * **Creation**
     *  We will use **Scala Array class** and call the **ofDim()** function, pass in the type of String in square brackets **[String]** and then specify our **2 by 2 array** in the function parameter.
 ```scala
