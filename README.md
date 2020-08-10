@@ -207,8 +207,183 @@ for { x <- 0 until 2
 
 ```
 
+### Pattern Matching
+* We will see **functional feature** of Scala which is **pattern matching**
+* **Pattern matching** may at first sight appear similar to switch statements. But, Scala's pattern matching is a lot more powerful!
 
+##### 1. Pattern matching 101 - a very basic example
+* Unlike in **Java** or in **.NET**, there are **no break** statements!
+* If someone forgot to use the **break** clause, exception will be thrown. In **Java or .NET**, this would allow the logic to **fall-through** to the next case statement.
+* Scala compiler is smart enough to prevent fall-through and hence there is no need to use a break clause with pattern matching.
+```scala
+println("Step 1: Pattern matching 101 - a very basic example")
+val donutType = "Glazed Donut"
+donutType match {
+  case "Glazed Donut" => println("Very tasty")
+  case "Plain Donut" => println("Tasty")
+}
+```
+**Output**
+```text
+Step 1: Pattern matching 101 - a very basic example
+Very tasty
+```
 
+##### 2. Pattern matching and return the result
+* Like  **If And Else Expression** and **For Comprehension**, Scala's **pattern matching** can **return** the result back to the caller.
+* We did not have to use the **return** keyword as you would in say **Java or .NET**.
+* Instead, the **last expression** will be the one **returned** back to the caller.
+```scala
+println("\nStep 2: Pattern matching and return the result")
+val tasteLevel = donutType match {
+  case "Glazed Donut" => "Very tasty"
+  case "Plain Donut" => "Tasty"
+}
+println(s"Taste level of $donutType = $tasteLevel")
+```
+**Output**
+```text
+Step 2: Pattern matching and return the result
+Taste level of Glazed Donut = Very tasty
+```
+##### 3. Pattern matching using the wildcard operator
+* There is no need to use any **break** clauses as there is no **fall-through** when using **pattern matching**.
+* But, what if you needed to provide a **default case**?
+* We use **wildcard operator (_)**
+```scala
+val donutType = "Glazed Donut"
+println("\nStep 3: Pattern matching using the wildcard operator")
+val tasteLevel2 = donutType match {
+  case "Glazed Donut" => "Very tasty"
+  case "Plain Donut" => "Tasty"
+  case _ => "Tasty"
+}
+println(s"Taste level of $donutType = $tasteLevel2")
+```
+**Output**
+```text
+Step 3: Pattern matching using the wildcard operator
+Taste level of Glazed Donut = Very tasty
+```
+##### 4. Pattern matching with two or more items on the same condition
+* This behavior seems similar to an OR expression and you can use the **pipe |**
+```scala
+val donutType = "Glazed Donut"
+println("\nStep 4: Pattern matching with two or more items on the same condition")
+val tasteLevel3 = donutType match {
+  case "Glazed Donut" | "Strawberry Donut" => "Very tasty"
+  case "Plain Donut" => "Tasty"
+  case _ => "Tasty"
+}
+println(s"Taste level of $donutType = $tasteLevel3")
+```
+**Output**
+```text
+Step 4: Pattern matching with two or more items on the same condition
+Taste level of Glazed Donut = Very tasty
+```
+##### 5. Pattern matching and using if expressions in the case clause
+* We can simulate an **OR** clause by adding **If Expression** in the case statements.
+```scala
+val donutType = "Glazed Donut"
+println("\nStep 5; Pattern matching and using if expressions in the case clause")
+val tasteLevel4 = donutType match {
+  case donut if (donut.contains("Glazed") || donut.contains("Strawberry")) => "Very tasty"
+  case "Plain Donut"  => "Tasty"
+  case _  => "Tasty"
+}
+println(s"Taste level of $donutType = $tasteLevel4")
+```
+**Output**
+```text
+Step 5; Pattern matching and using if expressions in the case clause
+Taste level of Glazed Donut = Very tasty
+```
+##### 6. Pattern matching by types
+* What if we would like to **pattern match** on the **type** of the variable?
+* Let's declare a variable explicitly to be of type **Any** to hold the price of one donut.
+* The **Scala** compiler would **infer** that priceOfDonut to be of type Double.
+```scala
+println("\nStep 6: Pattern matching by types")
+val priceOfDonut: Any = 2.50
+val priceType = priceOfDonut match {
+  case price: Int => "Int"
+  case price: Double => "Double"
+  case price: Float => "Float"
+  case price: String => "String"
+  case price: Boolean => "Boolean"
+  case price: Char => "Char"
+  case price: Long => "Long"
+}
+println(s"Donut price type = $priceType")
+```
+**Output**
+```text
+Step 6: Pattern matching by types
+Donut price type = Double
+```
+* We can think of the **Any** type similar to the **Object class**.
+* In other words, **Any** is at the **root of Scala's type hierarchy**.
 
+# Chapter 3 Thinking in terms of functions
+
+### Function
+* Scala is both an Object Oriented and Functional programming language
+
+#### Learn How To Create And Use Functions
+```text
+
+```
+##### 1. How to define and use a function which has no parameters and has a return type
+* To define a function in Scala:
+    * We need to use the keyword def.
+    * Then add the name of your function followed by an empty pair of parenthesis (). 
+    * To specify the return type you need to use the colon : followed by the return type.
+    * Finally, you will use the = followed by {} to enclose the body of your function.
+    * We did not use any return keyword as you would in say **Java or .NET**. The last line within the body of the function is the one that will be returned back to the caller.
+
+```scala
+println("Step 1: How to define and use a function which has no parameters and has a return type")
+def favoriteDonut(): String = {
+  "Glazed Donut"
+}
+
+val myFavoriteDonut = favoriteDonut()
+println(s"My favorite donut is $myFavoriteDonut")
+```
+**Output**
+```text
+Step 1: How to define and use a function which has a return type
+My favorite donut is Glazed Donut
+```
+##### 2. How to define and use a function with no parenthesis
+*  We should define your functions without parenthesis if you are defining a function that does not have any side effects.
+*  We also did not provide a return type of String to the leastFavoriteDonut function to leverage what we've learned from the tutorial on Scala Type Inference.
+
+```scala
+println("\nStep 2: How to define and use a function with no parenthesis")
+def leastFavoriteDonut = "Plain Donut"
+println(s"My least favorite donut is $leastFavoriteDonut")
+```
+**Output**
+```text
+Step 2: How to define and use a function with no parenthesis
+My least favorite donut is Plain Donut
+```
+##### 3. How to define and use a function with no return type
+* If you have used other mainstream languages such as Java or .NET, Unit is similar to using the void keyword in a method.
+```scala
+println("\nStep 3: How to define and use a function with no return type")
+def printDonutSalesReport(): Unit = {
+  // lookup sales data in database and create some report
+  println("Printing donut sales report... done!")
+}
+printDonutSalesReport()
+```
+**Output**
+```text
+Step 3: How to define and use a function with no return type
+Printing donut sales report... done!
+```
 
 
