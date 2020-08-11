@@ -507,6 +507,44 @@ object Auxiliary_class_scala extends App {
 }
 ````
 
+##### Inheritance
+```scala
+package org.as.devtechsolution.yu.ch06.inheritance
+
+class Polygon {
+  def area: Double = 0.0
+}
+
+  object Polygon extends App{
+    var poly= new Polygon;
+    printArea(poly)// 0.0
+    var rect= new Rectangle(25.0,32);
+    printArea(rect)// 800.0
+    var tri= new Triangle(25.0,32);
+    printArea(tri)//400.0
+
+    def printArea(p:Polygon): Unit ={
+      println(p.area)
+    }
+
+  }
+```
+```scala
+package org.as.devtechsolution.yu.ch06.inheritance
+
+class Rectangle(var width:Double, var height:Double) extends Polygon {
+  override def area: Double = width*height
+}
+```
+```scala
+package org.as.devtechsolution.yu.ch06.inheritance
+
+class Triangle (var width:Double, var height:Double) extends Polygon {
+  override def area: Double = width*height/2
+}
+```
+
+
 
 
 
